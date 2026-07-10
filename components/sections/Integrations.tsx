@@ -4,23 +4,58 @@ import { useRef } from "react";
 import { INTEGRATIONS } from "@/constants/data";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Plug } from "lucide-react";
+import {
+  SlackLogo,
+  GitHubLogo,
+  FigmaLogo,
+  NotionLogo,
+  GoogleDriveLogo,
+  JiraLogo,
+  DiscordLogo,
+  ZapierLogo,
+  TeamsLogo,
+  DropboxLogo,
+  ZoomLogo,
+  GitLabLogo,
+} from "@/components/ui/IntegrationLogos";
 
-/* Brand abbreviation tile */
+const logoMap = {
+  Slack: SlackLogo,
+  GitHub: GitHubLogo,
+  Figma: FigmaLogo,
+  Notion: NotionLogo,
+  "Google Drive": GoogleDriveLogo,
+  Jira: JiraLogo,
+  Discord: DiscordLogo,
+  Zapier: ZapierLogo,
+  Teams: TeamsLogo,
+  Dropbox: DropboxLogo,
+  Zoom: ZoomLogo,
+  GitLab: GitLabLogo,
+};
+
+/* Logo tile with real brand logo */
 function IntegrationTile({ name, color }: { name: string; color: string }) {
-  const abbr = name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+  const LogoComponent = logoMap[name as keyof typeof logoMap];
 
   return (
     <div className="flex flex-col items-center gap-2.5 shrink-0 w-[120px]">
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center text-white text-base font-black shadow-[0_4px_20px_rgba(0,0,0,0.12)] border border-white/10"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-[0_4px_20px_rgba(0,0,0,0.12)] border border-white/10"
         style={{ background: color }}
       >
-        {abbr}
+        {LogoComponent ? (
+          <LogoComponent size={28} className="text-white" />
+        ) : (
+          <span className="text-base font-black">
+            {name
+              .split(" ")
+              .map((w) => w[0])
+              .join("")
+              .slice(0, 2)
+              .toUpperCase()}
+          </span>
+        )}
       </div>
       <span className="text-xs font-semibold text-text-secondary text-center leading-tight">
         {name}
@@ -37,7 +72,11 @@ export function Integrations() {
   const row2 = INTEGRATIONS.slice(6);
 
   return (
-    <section id="integrations" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
+    <section
+      id="integrations"
+      className="py-24 md:py-32 relative overflow-hidden"
+      ref={ref}
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-surface-2/20 pointer-events-none" />
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
@@ -108,9 +147,12 @@ export function Integrations() {
               <Plug size={18} className="text-primary" />
             </div>
             <div>
-              <p className="text-sm font-bold text-text">Need a custom integration?</p>
+              <p className="text-sm font-bold text-text">
+                Need a custom integration?
+              </p>
               <p className="text-xs text-text-secondary">
-                Use our REST & GraphQL API to build anything. Full docs included.
+                Use our REST & GraphQL API to build anything. Full docs
+                included.
               </p>
             </div>
           </div>
