@@ -1,0 +1,44 @@
+# Files and directories to ignore during Vercel deployment
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+.jest_cache/
+.coverage/
+
+# Production
+.next/
+
+# Misc
+*.pem
+.env.local
+.env.*.local
+.DS_Store
+*.log
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+docs/
+DEPLOYMENT.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
