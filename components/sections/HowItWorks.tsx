@@ -88,7 +88,7 @@ export function HowItWorks() {
                           boxShadow: `0 0 32px ${color}20`,
                         }}
                       >
-                        <Icon size={28} style={{ color }} />
+                        <Icon size={28} />
                         <span
                           className="text-[10px] font-black uppercase tracking-widest"
                           style={{ color: color + "cc" }}
