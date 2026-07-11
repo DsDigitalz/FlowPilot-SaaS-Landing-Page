@@ -171,7 +171,7 @@ export function Pricing() {
                   <Button
                     variant={plan.popular ? "secondary" : "outline"}
                     size="md"
-                    className={`w-full justify-center ${plan.popular ? "bg-white text-black hover:bg-white/90 border-transparent" : ""}`}
+                    className={`w-full justify-center ${plan.popular ? "bg-white !text-neutral-900 hover:bg-white/90 border-transparent" : ""}`}
                     magnetic
                   >
                     {plan.cta}
