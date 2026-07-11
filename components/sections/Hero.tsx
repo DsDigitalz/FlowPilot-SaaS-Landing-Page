@@ -66,7 +66,7 @@ const tasks = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-15 sm:pt-15 md:pt-15 pb-30 sm:pb-16 md:pb-20 w-full overflow-x-hidden">
+    <section className="relative min-h-screen flex items-center pt-15 sm:pt-15 md:pt-15 pb-30 lg:pt-0 sm:pb-16 md:pb-20 w-full overflow-x-hidden">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg" />
       <div className="absolute inset-0 grid-lines opacity-40" />
@@ -158,7 +158,7 @@ export function Hero() {
           </motion.div>
 
           {/* ── Right dashboard mockup ── */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end w-full overflow-x-hidden lg:overflow-x-visible rounded-2xl">
             {/* Main card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
@@ -168,7 +168,7 @@ export function Hero() {
                 ease: "easeOut",
                 delay: 0.15,
               }}
-              className="relative w-full max-w-[500px] rounded-[28px] bg-surface border border-border shadow-[0_32px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-full max-w-[500px] rounded-[28px] bg-surface border border-border dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               {/* Dashboard header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-surface-2/50">
@@ -258,7 +258,7 @@ export function Hero() {
             <motion.div
               variants={floatA}
               animate="animate"
-              className="hidden md:block absolute -top-4 -left-10 glass rounded-2xl p-3.5 shadow-lg w-48 z-20"
+              className="hidden md:block absolute -top-4 left-4 lg:-left-10 glass rounded-2xl p-3.5 shadow-lg w-48 z-20"
             >
               <div className="flex items-center gap-2.5 mb-2">
                 <Bell size={14} className="text-primary" />
@@ -284,7 +284,7 @@ export function Hero() {
             <motion.div
               variants={floatB}
               animate="animate"
-              className="hidden md:block absolute -bottom-6 -left-8 glass rounded-2xl p-4 shadow-lg w-44 z-20"
+              className="hidden md:block absolute -bottom-6 left-4 lg:-left-8 glass rounded-2xl p-4 shadow-lg w-44 z-20"
             >
               <TrendingUp size={16} className="text-primary mb-1.5" />
               <p className="text-[10px] text-muted uppercase font-semibold tracking-wider">
@@ -305,7 +305,7 @@ export function Hero() {
             <motion.div
               variants={floatC}
               animate="animate"
-              className="hidden md:block absolute -top-2 -right-8 glass rounded-2xl p-3.5 shadow-lg w-40 z-20"
+              className="hidden md:block absolute -top-2 right-4 lg:-right-8 glass rounded-2xl p-3.5 shadow-lg w-40 z-20"
             >
               <div className="flex items-center gap-1.5 mb-2">
                 <Users size={13} className="text-accent" />
