@@ -7,14 +7,30 @@ import { Button } from "@/components/ui/Button";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 const aiMessages = [
-  { type: "ai", text: "I've analysed this sprint. 3 tasks are at risk of missing Friday's deadline." },
-  { type: "ai", text: "Suggested: reassign 'API integration' to Marcus — his calendar is clear tomorrow." },
-  { type: "user", text: "Do it. Also reschedule the design review to Thursday." },
-  { type: "ai", text: "Done! Sprint now looks on track. Estimated completion: Thursday 4 PM. 🎉" },
+  {
+    type: "ai",
+    text: "I've analysed this sprint. 3 tasks are at risk of missing Friday's deadline.",
+  },
+  {
+    type: "ai",
+    text: "Suggested: reassign 'API integration' to Marcus — his calendar is clear tomorrow.",
+  },
+  {
+    type: "user",
+    text: "Do it. Also reschedule the design review to Thursday.",
+  },
+  {
+    type: "ai",
+    text: "Done! Sprint now looks on track. Estimated completion: Thursday 4 PM. 🎉",
+  },
 ];
 
 export function AISection() {
@@ -22,14 +38,20 @@ export function AISection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 md:py-32 bg-surface-2/30" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section
+      className="lg:py-24 py-16 bg-surface-2/30 overflow-x-hidden"
+      ref={ref}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left: content */}
           <motion.div
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
             className="flex flex-col gap-7"
           >
             <motion.div variants={fadeUp}>
@@ -45,18 +67,39 @@ export function AISection() {
 
             <motion.div variants={fadeUp} className="grid sm:grid-cols-2 gap-4">
               {[
-                { icon: Sparkles, title: "Auto-prioritisation", desc: "AI ranks your backlog by impact and urgency." },
-                { icon: Calendar, title: "Deadline prediction", desc: "Predicts slippage before it happens." },
-                { icon: TrendingUp, title: "Meeting summaries", desc: "Generates action items from transcripts." },
-                { icon: ShieldCheck, title: "Risk detection", desc: "Flags blockers and capacity issues early." },
+                {
+                  icon: Sparkles,
+                  title: "Auto-prioritisation",
+                  desc: "AI ranks your backlog by impact and urgency.",
+                },
+                {
+                  icon: Calendar,
+                  title: "Deadline prediction",
+                  desc: "Predicts slippage before it happens.",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Meeting summaries",
+                  desc: "Generates action items from transcripts.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Risk detection",
+                  desc: "Flags blockers and capacity issues early.",
+                },
               ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex items-start gap-3 p-4 bg-surface rounded-2xl border border-border">
+                <div
+                  key={title}
+                  className="flex items-start gap-3 p-4 bg-surface rounded-2xl border border-border"
+                >
                   <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Icon size={15} className="text-primary" />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-text">{title}</p>
-                    <p className="text-xs text-text-secondary mt-0.5 leading-relaxed">{desc}</p>
+                    <p className="text-xs text-text-secondary mt-0.5 leading-relaxed">
+                      {desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -65,7 +108,10 @@ export function AISection() {
             <motion.div variants={fadeUp}>
               <Button size="lg" glow magnetic className="group">
                 Try AI Free
-                <Sparkles size={16} className="group-hover:rotate-12 transition-transform" />
+                <Sparkles
+                  size={16}
+                  className="group-hover:rotate-12 transition-transform"
+                />
               </Button>
             </motion.div>
           </motion.div>
@@ -88,7 +134,9 @@ export function AISection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-text">FlowPilot AI</p>
-                  <p className="text-[10px] text-primary font-medium">● Active — analysing Sprint 24</p>
+                  <p className="text-[10px] text-primary font-medium">
+                    ● Active — analysing Sprint 24
+                  </p>
                 </div>
               </div>
 
@@ -110,7 +158,9 @@ export function AISection() {
                       }`}
                     >
                       {msg.type === "ai" && (
-                        <span className="text-[10px] font-bold text-primary block mb-1">AI</span>
+                        <span className="text-[10px] font-bold text-primary block mb-1">
+                          AI
+                        </span>
                       )}
                       {msg.text}
                     </div>
@@ -138,7 +188,9 @@ export function AISection() {
               {/* Input mock */}
               <div className="px-5 py-4 border-t border-border bg-surface-2/30 flex items-center gap-3">
                 <div className="flex-1 h-9 rounded-xl bg-surface border border-border px-3 flex items-center">
-                  <span className="text-xs text-muted">Ask AI anything about your project...</span>
+                  <span className="text-xs text-muted">
+                    Ask AI anything about your project...
+                  </span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shrink-0">
                   <Sparkles size={14} className="text-white" />

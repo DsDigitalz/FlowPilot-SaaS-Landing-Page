@@ -8,8 +8,18 @@ import { MessageSquare, Clock, Shield, Zap } from "lucide-react";
 
 const highlights = [
   { icon: Clock, label: "Setup time", value: "< 5 min", color: "#7c3aed" },
-  { icon: Shield, label: "Compliance", value: "SOC 2 & GDPR", color: "#4f46e5" },
-  { icon: MessageSquare, label: "Support SLA", value: "< 2 hours", color: "#0891b2" },
+  {
+    icon: Shield,
+    label: "Compliance",
+    value: "SOC 2 & GDPR",
+    color: "#4f46e5",
+  },
+  {
+    icon: MessageSquare,
+    label: "Support SLA",
+    value: "< 2 hours",
+    color: "#0891b2",
+  },
   { icon: Zap, label: "Uptime SLA", value: "99.9%", color: "#059669" },
 ];
 
@@ -18,12 +28,16 @@ export function FAQ() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
+    <section
+      id="faq"
+      className="lg:py-24 py-16 relative overflow-x-hidden"
+      ref={ref}
+    >
       {/* Ambient background */}
       <div className="absolute inset-0 mesh-bg opacity-60 pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -47,7 +61,9 @@ export function FAQ() {
             className="lg:col-span-2 flex flex-col gap-4"
           >
             <div className="rounded-[28px] border border-border bg-surface p-6 flex flex-col gap-5 shadow-sm">
-              <p className="text-xs font-bold text-muted uppercase tracking-widest">At a glance</p>
+              <p className="text-xs font-bold text-muted uppercase tracking-widest">
+                At a glance
+              </p>
               <div className="grid grid-cols-2 gap-3">
                 {highlights.map(({ icon: Icon, label, value, color }) => (
                   <div
@@ -60,8 +76,12 @@ export function FAQ() {
                     >
                       <Icon size={15} style={{ color }} />
                     </div>
-                    <p className="text-base font-black text-text leading-none">{value}</p>
-                    <p className="text-[11px] text-muted font-medium">{label}</p>
+                    <p className="text-base font-black text-text leading-none">
+                      {value}
+                    </p>
+                    <p className="text-[11px] text-muted font-medium">
+                      {label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -70,7 +90,9 @@ export function FAQ() {
             {/* Still have questions CTA */}
             <div className="rounded-[24px] border border-primary/20 bg-primary/5 p-6 flex flex-col gap-3">
               <MessageSquare size={20} className="text-primary" />
-              <p className="text-sm font-bold text-text">Still have questions?</p>
+              <p className="text-sm font-bold text-text">
+                Still have questions?
+              </p>
               <p className="text-sm text-text-secondary leading-relaxed">
                 Our support team replies within 2 hours, even on weekends.
               </p>

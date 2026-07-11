@@ -1,15 +1,17 @@
 "use client";
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
-import {
-  Sparkles, Kanban, Users, Clock, BarChart3, Zap,
-} from "lucide-react";
+import { Sparkles, Kanban, Users, Clock, BarChart3, Zap } from "lucide-react";
 import { FEATURES } from "@/constants/data";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const ICONS: Record<
   string,
-  React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>
+  React.ComponentType<{
+    size?: number;
+    className?: string;
+    style?: React.CSSProperties;
+  }>
 > = {
   Sparkles,
   LayoutKanban: Kanban,
@@ -25,7 +27,11 @@ const container: Variants = {
 };
 const card: Variants = {
   hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 export function Features() {
@@ -33,8 +39,12 @@ export function Features() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" className="py-24 md:py-32" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section
+      id="features"
+      className="lg:py-24 py-16 overflow-x-hidden"
+      ref={ref}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         <SectionTitle
           badge="Everything You Need"
           title="The complete toolkit for"
@@ -66,7 +76,9 @@ export function Features() {
                 {/* gradient top border line */}
                 <div
                   className="absolute top-0 left-6 right-6 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: `linear-gradient(90deg, transparent, ${f.color}, transparent)` }}
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${f.color}, transparent)`,
+                  }}
                 />
 
                 <div
@@ -77,8 +89,12 @@ export function Features() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-bold text-lg text-text font-display">{f.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">{f.description}</p>
+                  <h3 className="font-bold text-lg text-text font-display">
+                    {f.title}
+                  </h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    {f.description}
+                  </p>
                 </div>
 
                 <div className="mt-auto">

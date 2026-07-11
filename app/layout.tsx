@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { ThemeInitializer } from "@/components/ThemeInitializer";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
   title: "FlowPilot — The Modern Workspace for High-Velocity Teams",
   description:
     "Manage projects, automate repetitive work with AI, collaborate with your team, and track performance from one beautiful workspace. Loved by 50,000+ teams.",
-  keywords: "project management, AI, collaboration, task tracking, kanban, productivity",
+  keywords:
+    "project management, AI, collaboration, task tracking, kanban, productivity",
   openGraph: {
     title: "FlowPilot — Plan, Build, Ship Faster",
     description:
@@ -38,15 +40,9 @@ export default function RootLayout({
       className={`${inter.variable} ${plusJakarta.variable} h-full`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Flash-free theme initialisation */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('fp-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
-          }}
-        />
-      </head>
+      <head />
       <body className="min-h-full flex flex-col antialiased bg-background text-text font-sans">
+        <ThemeInitializer />
         {children}
       </body>
     </html>

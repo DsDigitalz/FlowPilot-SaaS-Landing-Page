@@ -17,8 +17,8 @@ export function FinalCTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 md:py-32" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section className="lg:py-24 py-16 overflow-x-hidden" ref={ref}>
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -43,12 +43,22 @@ export function FinalCTA() {
           />
           <motion.div
             animate={{ y: [0, -14, 0], rotate: [0, -4, 0] }}
-            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            transition={{
+              duration: 11,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
             className="absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-white/10 blur-3xl"
           />
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
             className="absolute top-12 right-16 w-32 h-32 rounded-full bg-white/5 blur-2xl"
           />
 
@@ -63,7 +73,8 @@ export function FinalCTA() {
             </h2>
 
             <p className="text-white/75 text-lg leading-relaxed max-w-lg">
-              Join thousands of teams transforming how they plan and deliver projects. No setup, no consultants needed.
+              Join thousands of teams transforming how they plan and deliver
+              projects. No setup, no consultants needed.
             </p>
 
             {/* Social proof avatars */}
@@ -82,10 +93,17 @@ export function FinalCTA() {
               <div className="text-left">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="#fbbf24" className="text-amber-400" />
+                    <Star
+                      key={i}
+                      size={12}
+                      fill="#fbbf24"
+                      className="text-amber-400"
+                    />
                   ))}
                 </div>
-                <p className="text-white/70 text-xs mt-0.5">Loved by 50,000+ teams</p>
+                <p className="text-white/70 text-xs mt-0.5">
+                  Loved by 50,000+ teams
+                </p>
               </div>
             </div>
 
@@ -97,7 +115,10 @@ export function FinalCTA() {
                 className="bg-white text-primary hover:bg-white/90 border-transparent shadow-lg group"
               >
                 Start Free Today
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </Button>
               <Button
                 size="lg"

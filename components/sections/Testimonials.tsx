@@ -5,7 +5,7 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { TESTIMONIALS } from "@/constants/data";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
+function TestimonialCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   return (
     <div className="flex flex-col gap-5 p-8 rounded-[28px] bg-surface border border-border w-[380px] shrink-0 hover:border-primary/30 hover:shadow-lg transition-all">
       <Quote size={28} style={{ color: t.color }} className="opacity-40" />
@@ -26,7 +26,9 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
         </div>
         <div>
           <p className="text-sm font-bold text-text">{t.name}</p>
-          <p className="text-xs text-muted">{t.role} · {t.company}</p>
+          <p className="text-xs text-muted">
+            {t.role} · {t.company}
+          </p>
         </div>
       </div>
     </div>
@@ -43,8 +45,11 @@ export function Testimonials() {
   const next = () => setIdx((i) => (i === TESTIMONIALS.length - 1 ? 0 : i + 1));
 
   return (
-    <section className="py-24 md:py-32 bg-surface-2/30" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section
+      className="py-24 md:py-32 bg-surface-2/30 overflow-x-hidden"
+      ref={ref}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -84,7 +89,7 @@ export function Testimonials() {
       </motion.div>
 
       {/* Mobile carousel */}
-      <div className="lg:hidden px-6">
+      <div className="lg:hidden px-4 sm:px-6">
         <div className="overflow-hidden rounded-[24px]">
           <AnimatePresence mode="wait">
             <motion.div

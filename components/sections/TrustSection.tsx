@@ -22,7 +22,12 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
     requestAnimationFrame(step);
   }, [inView, target]);
 
-  return <span ref={ref}>{val}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {val}
+      {suffix}
+    </span>
+  );
 }
 
 const stat_config = [
@@ -42,8 +47,11 @@ export function TrustSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-16 border-y border-border bg-surface-2/40" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6 flex flex-col gap-10">
+    <section
+      className="py-16 border-y border-border bg-surface-2/40 overflow-x-hidden"
+      ref={ref}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full flex flex-col gap-10">
         {/* Tagline */}
         <motion.p
           initial="hidden"
@@ -79,7 +87,10 @@ export function TrustSection() {
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4"
         >
           {stat_config.map((s) => (
@@ -89,7 +100,11 @@ export function TrustSection() {
               className="text-center flex flex-col gap-1.5"
             >
               <span className="text-3xl md:text-4xl font-black font-display gradient-text">
-                {s.display ? s.display : <CountUp target={s.raw} suffix={s.suffix} />}
+                {s.display ? (
+                  s.display
+                ) : (
+                  <CountUp target={s.raw} suffix={s.suffix} />
+                )}
               </span>
               <span className="text-sm text-muted font-medium">{s.label}</span>
             </motion.div>

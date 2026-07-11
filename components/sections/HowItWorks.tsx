@@ -5,15 +5,24 @@ import { Building2, Layout, Rocket, ChevronRight } from "lucide-react";
 import { HOW_IT_WORKS } from "@/constants/data";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Building2, Layout, Rocket,
+const ICONS: Record<
+  string,
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
+  Building2,
+  Layout,
+  Rocket,
 };
 
 const COLORS = ["#7c3aed", "#4f46e5", "#0891b2"];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 export function HowItWorks() {
@@ -21,15 +30,22 @@ export function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-surface-2/30 relative overflow-hidden" ref={ref}>
+    <section
+      id="how-it-works"
+      className="lg:py-24 py-16 bg-surface-2/30 relative overflow-x-hidden"
+      ref={ref}
+    >
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10 w-full">
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}
         >
           <motion.div variants={fadeUp} className="mb-16">
             <SectionTitle
@@ -40,13 +56,14 @@ export function HowItWorks() {
             />
           </motion.div>
 
-          <div className="relative grid md:grid-cols-3 gap-8 md:gap-6">
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Connecting line */}
             <div className="hidden md:block absolute top-[52px] left-[calc(16.66%+52px)] right-[calc(16.66%+52px)] h-[2px]">
               <motion.div
                 className="h-full rounded-full"
                 style={{
-                  background: "linear-gradient(90deg, #7c3aed, #4f46e5, #0891b2)",
+                  background:
+                    "linear-gradient(90deg, #7c3aed, #4f46e5, #0891b2)",
                 }}
                 initial={{ scaleX: 0, transformOrigin: "left" }}
                 animate={inView ? { scaleX: 1 } : {}}
@@ -67,20 +84,24 @@ export function HowItWorks() {
               const Icon = ICONS[icon] ?? Rocket;
               const color = COLORS[i];
               return (
-                <motion.div
+                <motion.article
                   key={step}
                   variants={fadeUp}
                   custom={i}
-                  className="relative flex flex-col items-center text-center gap-5"
+                  className="relative flex flex-col items-center text-center gap-8"
                 >
                   {/* Step number badge */}
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center">
+                  <div className="relative md:static flex flex-col items-center">
                     {/* Glowing ring */}
                     <div className="relative z-10">
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={inView ? { scale: 1 } : {}}
-                        transition={{ duration: 0.5, delay: 0.3 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{
+                          duration: 0.5,
+                          delay: 0.3 + i * 0.2,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
                         className="relative w-[104px] h-[104px] rounded-full flex flex-col items-center justify-center gap-1"
                         style={{
                           background: `radial-gradient(circle at 40% 40%, ${color}25, ${color}08)`,
@@ -100,8 +121,12 @@ export function HowItWorks() {
                   </div>
 
                   <div className="flex flex-col gap-2 max-w-[280px]">
-                    <h3 className="font-bold text-xl font-display text-text">{title}</h3>
-                    <p className="text-text-secondary text-sm leading-relaxed">{description}</p>
+                    <h3 className="font-bold text-xl md:text-2xl font-display text-text">
+                      {title}
+                    </h3>
+                    <p className="text-text-secondary text-sm leading-relaxed">
+                      {description}
+                    </p>
                   </div>
 
                   {/* Feature chip */}
@@ -117,7 +142,7 @@ export function HowItWorks() {
                     {i === 1 && "AI suggests your roadmap"}
                     {i === 2 && "Real-time progress tracking"}
                   </div>
-                </motion.div>
+                </motion.article>
               );
             })}
           </div>

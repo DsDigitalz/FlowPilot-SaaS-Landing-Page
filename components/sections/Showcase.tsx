@@ -1,19 +1,60 @@
 "use client";
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
-import { Sparkles, Calendar, Bell, TrendingUp, CheckCircle2, Clock, BarChart3, Zap } from "lucide-react";
+import {
+  Sparkles,
+  Calendar,
+  Bell,
+  TrendingUp,
+  CheckCircle2,
+  Clock,
+  BarChart3,
+  Zap,
+} from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 const tasks = [
-  { label: "Redesign onboarding flow", assignee: "SC", priority: "High", tag: "Design", color: "#7c3aed", done: false },
-  { label: "Set up CI/CD pipeline", assignee: "MR", priority: "Med", tag: "Dev", color: "#4f46e5", done: true },
-  { label: "Write Q3 product spec", assignee: "AO", priority: "High", tag: "Strategy", color: "#0891b2", done: false },
-  { label: "Customer interview round", assignee: "JK", priority: "Low", tag: "Research", color: "#059669", done: false },
+  {
+    label: "Redesign onboarding flow",
+    assignee: "SC",
+    priority: "High",
+    tag: "Design",
+    color: "#7c3aed",
+    done: false,
+  },
+  {
+    label: "Set up CI/CD pipeline",
+    assignee: "MR",
+    priority: "Med",
+    tag: "Dev",
+    color: "#4f46e5",
+    done: true,
+  },
+  {
+    label: "Write Q3 product spec",
+    assignee: "AO",
+    priority: "High",
+    tag: "Strategy",
+    color: "#0891b2",
+    done: false,
+  },
+  {
+    label: "Customer interview round",
+    assignee: "JK",
+    priority: "Low",
+    tag: "Research",
+    color: "#059669",
+    done: false,
+  },
 ];
 
 const barData = [55, 70, 45, 80, 65, 90, 72];
@@ -24,12 +65,19 @@ export function Showcase() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="showcase" className="py-24 md:py-32 bg-surface-2/30" ref={ref}>
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section
+      id="showcase"
+      className="lg:py-24 py-16 bg-surface-2/30 overflow-x-hidden"
+      ref={ref}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}
         >
           <motion.div variants={fadeUp} className="mb-14">
             <SectionTitle
@@ -49,7 +97,11 @@ export function Showcase() {
             <div className="flex items-center gap-3 px-5 py-3.5 border-b border-border bg-surface-2/40">
               <div className="flex gap-1.5">
                 {["#ef4444", "#f59e0b", "#22c55e"].map((c) => (
-                  <span key={c} className="w-3 h-3 rounded-full" style={{ background: c }} />
+                  <span
+                    key={c}
+                    className="w-3 h-3 rounded-full"
+                    style={{ background: c }}
+                  />
                 ))}
               </div>
               <span className="flex-1 text-center text-xs text-muted font-mono">
@@ -94,7 +146,9 @@ export function Showcase() {
                 <div className="mt-auto pt-4 border-t border-border mx-1">
                   <div className="flex items-center gap-2 px-2">
                     <Sparkles size={13} className="text-primary" />
-                    <span className="text-[11px] text-primary font-semibold">AI Active</span>
+                    <span className="text-[11px] text-primary font-semibold">
+                      AI Active
+                    </span>
                   </div>
                 </div>
               </div>
@@ -104,18 +158,42 @@ export function Showcase() {
                 {/* Top widgets row */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
-                    { label: "Tasks Due Today", value: "8", color: "#7c3aed", icon: CheckCircle2 },
-                    { label: "Sprint Progress", value: "72%", color: "#059669", icon: TrendingUp },
-                    { label: "Hours Logged", value: "34h", color: "#0891b2", icon: Clock },
-                    { label: "AI Suggestions", value: "5", color: "#d97706", icon: Sparkles },
+                    {
+                      label: "Tasks Due Today",
+                      value: "8",
+                      color: "#7c3aed",
+                      icon: CheckCircle2,
+                    },
+                    {
+                      label: "Sprint Progress",
+                      value: "72%",
+                      color: "#059669",
+                      icon: TrendingUp,
+                    },
+                    {
+                      label: "Hours Logged",
+                      value: "34h",
+                      color: "#0891b2",
+                      icon: Clock,
+                    },
+                    {
+                      label: "AI Suggestions",
+                      value: "5",
+                      color: "#d97706",
+                      icon: Sparkles,
+                    },
                   ].map(({ label, value, color, icon: Icon }) => (
                     <div
                       key={label}
                       className="glass rounded-2xl p-4 flex flex-col gap-1.5"
                     >
                       <Icon size={14} style={{ color }} />
-                      <span className="text-lg font-black text-text">{value}</span>
-                      <span className="text-[10px] text-muted font-medium leading-tight">{label}</span>
+                      <span className="text-lg font-black text-text">
+                        {value}
+                      </span>
+                      <span className="text-[10px] text-muted font-medium leading-tight">
+                        {label}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -125,7 +203,9 @@ export function Showcase() {
                   {/* Task list */}
                   <div className="md:col-span-3 bg-surface rounded-2xl border border-border p-4 flex flex-col gap-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-text">Today's Tasks</span>
+                      <span className="text-sm font-bold text-text">
+                        Today's Tasks
+                      </span>
                       <span className="text-xs text-primary font-semibold cursor-pointer hover:underline">
                         View all
                       </span>
@@ -140,13 +220,21 @@ export function Showcase() {
                       >
                         <div
                           className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0`}
-                          style={{ borderColor: t.done ? t.color : t.color + "60" }}
+                          style={{
+                            borderColor: t.done ? t.color : t.color + "60",
+                          }}
                         >
                           {t.done && (
-                            <CheckCircle2 size={10} style={{ color: t.color }} fill={t.color} />
+                            <CheckCircle2
+                              size={10}
+                              style={{ color: t.color }}
+                              fill={t.color}
+                            />
                           )}
                         </div>
-                        <span className={`text-xs font-medium flex-1 ${t.done ? "line-through text-muted" : "text-text"}`}>
+                        <span
+                          className={`text-xs font-medium flex-1 ${t.done ? "line-through text-muted" : "text-text"}`}
+                        >
                           {t.label}
                         </span>
                         <div
@@ -168,7 +256,9 @@ export function Showcase() {
                   {/* Weekly chart */}
                   <div className="md:col-span-2 bg-surface rounded-2xl border border-border p-4 flex flex-col gap-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-text">Weekly Output</span>
+                      <span className="text-sm font-bold text-text">
+                        Weekly Output
+                      </span>
                       <span className="text-xs text-muted">This week</span>
                     </div>
                     <div className="flex items-end gap-1.5 h-24 mt-auto">
@@ -176,16 +266,27 @@ export function Showcase() {
                         <motion.div
                           key={i}
                           className="flex-1 rounded-t-lg"
-                          style={{ background: i === 5 ? "#7c3aed" : "#7c3aed30" }}
+                          style={{
+                            background: i === 5 ? "#7c3aed" : "#7c3aed30",
+                          }}
                           initial={{ height: 0 }}
                           animate={inView ? { height: `${h}%` } : { height: 0 }}
-                          transition={{ duration: 0.8, delay: 0.5 + i * 0.08, ease: "easeOut" }}
+                          transition={{
+                            duration: 0.8,
+                            delay: 0.5 + i * 0.08,
+                            ease: "easeOut",
+                          }}
                         />
                       ))}
                     </div>
                     <div className="flex gap-1.5">
                       {days.map((d, i) => (
-                        <span key={i} className="flex-1 text-center text-[9px] text-muted">{d}</span>
+                        <span
+                          key={i}
+                          className="flex-1 text-center text-[9px] text-muted"
+                        >
+                          {d}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -197,9 +298,12 @@ export function Showcase() {
                     <Sparkles size={16} className="text-primary" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-bold text-text mb-0.5">AI Insight</p>
+                    <p className="text-xs font-bold text-text mb-0.5">
+                      AI Insight
+                    </p>
                     <p className="text-xs text-text-secondary">
-                      Your team velocity is up 18% vs last sprint. At this pace, Sprint 24 will finish 2 days early.
+                      Your team velocity is up 18% vs last sprint. At this pace,
+                      Sprint 24 will finish 2 days early.
                     </p>
                   </div>
                   <button className="text-xs text-primary font-semibold shrink-0 cursor-pointer hover:underline">

@@ -1,6 +1,15 @@
 "use client";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2, Sparkles, LayoutGrid, Users, Bell, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Play,
+  CheckCircle2,
+  Sparkles,
+  LayoutGrid,
+  Users,
+  Bell,
+  TrendingUp,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const container: Variants = {
@@ -10,7 +19,11 @@ const container: Variants = {
 
 const item: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 const floatA: Variants = {
@@ -23,13 +36,23 @@ const floatA: Variants = {
 const floatB: Variants = {
   animate: {
     y: [0, -10, 0],
-    transition: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+    transition: {
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 1.5,
+    },
   },
 };
 const floatC: Variants = {
   animate: {
     y: [0, -8, 0],
-    transition: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 0.8,
+    },
   },
 };
 
@@ -43,7 +66,7 @@ const tasks = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-30 sm:pt-24 md:pt-30 pb-30 sm:pb-16 md:pb-20 overflow-x-hidden">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg" />
       <div className="absolute inset-0 grid-lines opacity-40" />
@@ -53,8 +76,8 @@ export function Hero() {
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 -right-32 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* ── Left copy ── */}
           <motion.div
             variants={container}
@@ -75,34 +98,62 @@ export function Hero() {
             >
               Project Management{" "}
               <span className="gradient-text">Built for Teams</span>
-              <br />That Move Fast.
+              <br />
+              That Move Fast.
             </motion.h1>
 
-            <motion.p variants={item} className="text-lg text-text-secondary leading-relaxed max-w-lg">
-              Replace scattered tools with one modern platform. Organise tasks, collaborate in real time, automate
-              workflows with AI, and track progress effortlessly.
+            <motion.p
+              variants={item}
+              className="text-lg text-text-secondary leading-relaxed max-w-lg"
+            >
+              Replace scattered tools with one modern platform. Organise tasks,
+              collaborate in real time, automate workflows with AI, and track
+              progress effortlessly.
             </motion.p>
 
-            <motion.div variants={item} className="flex flex-wrap items-center gap-3">
-              <Button size="lg" glow magnetic className="group animate-pulse-glow">
+            <motion.div
+              variants={item}
+              className="flex flex-wrap items-center gap-3"
+            >
+              <Button
+                size="lg"
+                glow
+                magnetic
+                className="group animate-pulse-glow"
+              >
                 Start Free
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </Button>
               <Button size="lg" variant="secondary" magnetic className="gap-2">
                 <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Play size={12} fill="currentColor" className="text-primary ml-0.5" />
+                  <Play
+                    size={12}
+                    fill="currentColor"
+                    className="text-primary ml-0.5"
+                  />
                 </span>
                 Watch Demo
               </Button>
             </motion.div>
 
-            <motion.div variants={item} className="flex flex-wrap items-center gap-5 pt-2">
-              {["No credit card", "Free 14-day trial", "Cancel anytime"].map((t) => (
-                <span key={t} className="flex items-center gap-1.5 text-sm text-text-secondary">
-                  <CheckCircle2 size={15} className="text-primary shrink-0" />
-                  {t}
-                </span>
-              ))}
+            <motion.div
+              variants={item}
+              className="flex flex-wrap items-center gap-5 pt-2"
+            >
+              {["No credit card", "Free 14-day trial", "Cancel anytime"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="flex items-center gap-1.5 text-sm text-text-secondary"
+                  >
+                    <CheckCircle2 size={15} className="text-primary shrink-0" />
+                    {t}
+                  </span>
+                ),
+              )}
             </motion.div>
           </motion.div>
 
@@ -112,7 +163,11 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.3,
+              }}
               className="relative w-full max-w-[500px] rounded-[28px] bg-surface border border-border shadow-[0_32px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               {/* Dashboard header */}
@@ -121,7 +176,9 @@ export function Hero() {
                   <div className="w-6 h-6 rounded-lg bg-primary flex items-center justify-center">
                     <LayoutGrid size={12} className="text-white" />
                   </div>
-                  <span className="text-sm font-bold text-text">Sprint 24 — Board</span>
+                  <span className="text-sm font-bold text-text">
+                    Sprint 24 — Board
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   {["#7c3aed", "#4f46e5", "#0891b2"].map((c, i) => (
@@ -143,7 +200,12 @@ export function Hero() {
                       <span
                         className="w-2 h-2 rounded-full"
                         style={{
-                          background: ci === 0 ? "#71717a" : ci === 1 ? "#7c3aed" : "#059669",
+                          background:
+                            ci === 0
+                              ? "#71717a"
+                              : ci === 1
+                                ? "#7c3aed"
+                                : "#059669",
                         }}
                       />
                       <span className="text-[10px] font-semibold text-muted uppercase tracking-wide">
@@ -200,10 +262,19 @@ export function Hero() {
             >
               <div className="flex items-center gap-2.5 mb-2">
                 <Bell size={14} className="text-primary" />
-                <span className="text-[11px] font-bold text-text">3 new updates</span>
+                <span className="text-[11px] font-bold text-text">
+                  3 new updates
+                </span>
               </div>
-              {["Task completed ✓", "Comment from Sarah", "Deadline tomorrow"].map((n, i) => (
-                <p key={i} className="text-[10px] text-text-secondary py-1 border-t border-border/40">
+              {[
+                "Task completed ✓",
+                "Comment from Sarah",
+                "Deadline tomorrow",
+              ].map((n, i) => (
+                <p
+                  key={i}
+                  className="text-[10px] text-text-secondary py-1 border-t border-border/40"
+                >
                   {n}
                 </p>
               ))}
@@ -216,7 +287,9 @@ export function Hero() {
               className="absolute -bottom-6 -left-4 md:-left-8 glass rounded-2xl p-4 shadow-lg w-44 z-20"
             >
               <TrendingUp size={16} className="text-primary mb-1.5" />
-              <p className="text-[10px] text-muted uppercase font-semibold tracking-wider">Sprint progress</p>
+              <p className="text-[10px] text-muted uppercase font-semibold tracking-wider">
+                Sprint progress
+              </p>
               <div className="mt-2 h-1.5 bg-border rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
@@ -236,7 +309,9 @@ export function Hero() {
             >
               <div className="flex items-center gap-1.5 mb-2">
                 <Users size={13} className="text-accent" />
-                <span className="text-[11px] font-bold text-text">Active now</span>
+                <span className="text-[11px] font-bold text-text">
+                  Active now
+                </span>
               </div>
               <div className="flex -space-x-2">
                 {["#7c3aed", "#4f46e5", "#0891b2", "#059669"].map((c, i) => (

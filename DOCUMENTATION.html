@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowPilot SaaS Landing Page - Project Documentation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .header {
+        border-bottom: 3px solid #7c3aed;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+      }
+      h1 {
+        font-size: 28px;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 20px;
+        color: #7c3aed;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        border-left: 4px solid #7c3aed;
+        padding-left: 12px;
+      }
+      h3 {
+        font-size: 16px;
+        color: #1a1a1a;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      p {
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+      ul,
+      ol {
+        margin-left: 20px;
+        margin-bottom: 12px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .tech-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 15px 0;
+        background: #f8f8f8;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .tech-item {
+        display: flex;
+        align-items: center;
+      }
+      .tech-label {
+        font-weight: 600;
+        color: #7c3aed;
+        margin-right: 8px;
+        min-width: 80px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 13px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background: #f0f0f0;
+        font-weight: 600;
+        color: #333;
+      }
+      code {
+        background: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Monaco", "Menlo", monospace;
+        font-size: 12px;
+        color: #d63384;
+      }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 15px 0;
+      }
+      .feature-item {
+        background: #f9f9f9;
+        padding: 12px;
+        border-radius: 6px;
+        border-left: 3px solid #7c3aed;
+      }
+      .feature-item strong {
+        color: #1a1a1a;
+      }
+      .badge {
+        display: inline-block;
+        background: #7c3aed;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-right: 8px;
+      }
+      .section-break {
+        page-break-after: always;
+        margin: 40px 0;
+      }
+      .footer-note {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        font-size: 12px;
+        color: #666;
+      }
+      .deployment-steps {
+        background: #f0f4ff;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #4f46e5;
+        margin: 15px 0;
+      }
+      .command {
+        background: #1a1a1a;
+        color: #00ff00;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: "Monaco", "Menlo", monospace;
+        font-size: 12px;
+        margin: 10px 0;
+        overflow-x: auto;
+      }
+      .checklist {
+        list-style: none;
+        padding: 0;
+      }
+      .checklist li:before {
+        content: "✓ ";
+        color: #059669;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      @media print {
+        body {
+          padding: 20px;
+        }
+        .page-break {
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>FlowPilot — SaaS Landing Page</h1>
+      <div class="subtitle">
+        Project Documentation | Version 1.0 | July 2025
+      </div>
+    </div>
+
+    <h2>📋 Project Overview</h2>
+    <p>
+      FlowPilot is a modern, high-performance SaaS landing page built with
+      Next.js 16, React 19, Framer Motion, and Tailwind CSS. The project
+      showcases an AI-powered project management platform designed for
+      high-velocity teams.
+    </p>
+
+    <p><strong>Key Statistics:</strong></p>
+    <ul>
+      <li>50,000+ teams using the platform</li>
+      <li>99.9% uptime guarantee</li>
+      <li>5M+ tasks completed</li>
+      <li>120+ countries supported</li>
+      <li>100+ integrations available</li>
+    </ul>
+
+    <h2>🎯 Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>AI Assistant</strong><br />
+        Automatic task generation, meeting summaries, deadline suggestions
+      </div>
+      <div class="feature-item">
+        <strong>Kanban Boards</strong><br />
+        Drag-and-drop interface with custom workflows and labels
+      </div>
+      <div class="feature-item">
+        <strong>Team Collaboration</strong><br />
+        Real-time comments, mentions, file uploads, presence indicators
+      </div>
+      <div class="feature-item">
+        <strong>Time Tracking</strong><br />
+        Built-in timers, productivity reports, billable hours
+      </div>
+      <div class="feature-item">
+        <strong>Analytics</strong><br />
+        Velocity metrics, burndown charts, team performance
+      </div>
+      <div class="feature-item">
+        <strong>Smart Automation</strong><br />
+        Recurring tasks, triggers, approvals, notifications
+      </div>
+    </div>
+
+    <h2>🛠️ Technology Stack</h2>
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Technology</th>
+        <th>Version</th>
+      </tr>
+      <tr>
+        <td>Framework</td>
+        <td>Next.js (App Router)</td>
+        <td>16.2.10</td>
+      </tr>
+      <tr>
+        <td>Runtime</td>
+        <td>React</td>
+        <td>19.2.4</td>
+      </tr>
+      <tr>
+        <td>Styling</td>
+        <td>Tailwind CSS + PostCSS</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Animation</td>
+        <td>Framer Motion</td>
+        <td>12.42.2</td>
+      </tr>
+      <tr>
+        <td>Icons</td>
+        <td>Lucide React</td>
+        <td>1.23.0</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>TypeScript</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Linting</td>
+        <td>ESLint</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>Deployment</td>
+        <td>Vercel</td>
+        <td>Latest</td>
+      </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>📁 Project Structure</h2>
+    <p><strong>Key directories:</strong></p>
+    <ul>
+      <li>
+        <code>app/</code> - Next.js app router files (layout, page, styles)
+      </li>
+      <li>
+        <code>components/</code> - Reusable React components organized by type
+      </li>
+      <li>
+        <code>components/sections/</code> - 12 page sections (Hero, Features,
+        Pricing, etc.)
+      </li>
+      <li>
+        <code>components/ui/</code> - UI components (Button, Accordion, Logos,
+        etc.)
+      </li>
+      <li><code>constants/</code> - Content data and configuration</li>
+      <li><code>hooks/</code> - Custom React hooks (useTheme for dark mode)</li>
+      <li><code>public/</code> - Static assets</li>
+    </ul>
+
+    <h2>🎨 Page Sections (12 Total)</h2>
+    <ol>
+      <li><strong>Navbar</strong> - Navigation with logo and CTA</li>
+      <li><strong>Hero</strong> - Main headline with value proposition</li>
+      <li>
+        <strong>Trust Section</strong> - Featured companies using FlowPilot
+      </li>
+      <li><strong>Features</strong> - 6 core features with icons</li>
+      <li><strong>Showcase</strong> - Product demonstration</li>
+      <li><strong>Benefits</strong> - 8 key benefits</li>
+      <li><strong>How It Works</strong> - 3-step onboarding process</li>
+      <li><strong>Integrations</strong> - 12 partner tool logos in marquee</li>
+      <li><strong>AI Section</strong> - AI capabilities highlight</li>
+      <li>
+        <strong>Testimonials</strong> - 6 customer testimonials with ratings
+      </li>
+      <li>
+        <strong>Pricing</strong> - 3 pricing tiers (Starter, Pro, Enterprise)
+      </li>
+      <li><strong>FAQ</strong> - 8 FAQs in accordion format</li>
+      <li><strong>Final CTA</strong> - Bottom conversion funnel</li>
+      <li><strong>Footer</strong> - Links and company info</li>
+    </ol>
+
+    <h2>✨ Design Features</h2>
+    <ul class="checklist">
+      <li>Dark/Light theme with system preference detection</li>
+      <li>Smooth scroll animations with Framer Motion</li>
+      <li>Mobile-first responsive design (Tailwind CSS)</li>
+      <li>Semantic HTML for accessibility</li>
+      <li>Optimized font loading (Inter, Plus Jakarta Sans)</li>
+      <li>Real brand logos for 12 integrations (SVG)</li>
+      <li>Marquee carousel for scrolling integrations</li>
+      <li>Lazy loading and code splitting</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>🚀 Quick Start</h2>
+
+    <h3>Installation</h3>
+    <div class="command">npm install</div>
+
+    <h3>Development</h3>
+    <div class="command">npm run dev</div>
+    <p>Open <code>http://localhost:3000</code> in browser</p>
+
+    <h3>Production Build</h3>
+    <div class="command">npm run build npm run start</div>
+
+    <h3>Linting</h3>
+    <div class="command">npm run lint</div>
+
+    <h2>🌍 Deployment to Vercel</h2>
+
+    <h3>Method 1: GitHub Integration (Recommended)</h3>
+    <ol>
+      <li>Push code to GitHub</li>
+      <li>Visit <code>vercel.com/new</code></li>
+      <li>Select your repository</li>
+      <li>Click "Deploy" (auto-detects settings)</li>
+      <li>Get live URL in 2-3 minutes</li>
+    </ol>
+
+    <h3>Method 2: Vercel CLI</h3>
+    <div class="command">npm install -g vercel vercel login vercel --prod</div>
+
+    <h3>Configuration Files</h3>
+    <ul>
+      <li><code>vercel.json</code> - Build settings, headers, security</li>
+      <li><code>.vercelignore</code> - Files to exclude from deployment</li>
+    </ul>
+
+    <h2>📱 Responsive Design</h2>
+    <p><strong>Breakpoints (Tailwind CSS):</strong></p>
+    <ul>
+      <li><code>sm</code> - 640px and up</li>
+      <li><code>md</code> - 768px and up</li>
+      <li><code>lg</code> - 1024px and up</li>
+      <li><code>xl</code> - 1280px and up</li>
+      <li><code>2xl</code> - 1536px and up</li>
+    </ul>
+
+    <p><strong>Responsive Features:</strong></p>
+    <ul class="checklist">
+      <li>Mobile-optimized navigation</li>
+      <li>Fluid typography scaling</li>
+      <li>Adaptive grid layouts</li>
+      <li>Touch-friendly buttons and controls</li>
+      <li>Optimized spacing for mobile devices</li>
+    </ul>
+
+    <h2>🔒 Security & Performance</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>Security Headers</strong><br />
+        X-Content-Type-Options, X-Frame-Options, XSS Protection
+      </div>
+      <div class="feature-item">
+        <strong>Caching Strategy</strong><br />
+        Static assets (1 year), HTML (1 hour)
+      </div>
+      <div class="feature-item">
+        <strong>Type Safety</strong><br />
+        TypeScript 5 with strict mode
+      </div>
+      <div class="feature-item">
+        <strong>Performance</strong><br />
+        Code splitting, lazy loading, optimization
+      </div>
+    </div>
+
+    <h2>📊 Content Management</h2>
+    <p>All content is centralized in <code>constants/data.ts</code>:</p>
+    <ul>
+      <li><code>NAV_LINKS</code> - Navigation items</li>
+      <li><code>FEATURES</code> - Core features with icons and colors</li>
+      <li><code>INTEGRATIONS</code> - Partner tools with brand colors</li>
+      <li><code>PRICING</code> - Subscription tiers and features</li>
+      <li><code>TESTIMONIALS</code> - Customer quotes and ratings</li>
+      <li><code>FAQ</code> - Question/answer pairs</li>
+    </ul>
+
+    <h2>🔧 Customization Guide</h2>
+    <h3>Update Content</h3>
+    <p>
+      Edit <code>constants/data.ts</code> for all copy, features, pricing,
+      testimonials
+    </p>
+
+    <h3>Change Colors</h3>
+    <p>
+      Update Tailwind config or inline <code>style</code> props in components
+    </p>
+
+    <h3>Modify Fonts</h3>
+    <p>Change font imports in <code>app/layout.tsx</code></p>
+
+    <h3>Add Sections</h3>
+    <p>
+      Create component in <code>components/sections/</code> and import in
+      <code>app/page.tsx</code>
+    </p>
+
+    <div class="page-break"></div>
+
+    <h2>✅ Quality Checklist</h2>
+    <ul class="checklist">
+      <li>TypeScript type coverage</li>
+      <li>ESLint validation passes</li>
+      <li>Next.js build succeeds</li>
+      <li>Mobile responsive (tested)</li>
+      <li>Accessibility compliance</li>
+      <li>Performance optimized</li>
+      <li>SEO metadata configured</li>
+      <li>Dark mode functional</li>
+      <li>All 12 integrations displayed</li>
+    </ul>
+
+    <h2>📞 Support & Resources</h2>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs" target="_blank"
+          >Next.js Documentation</a
+        >
+      </li>
+      <li>
+        <a href="https://react.dev" target="_blank">React Documentation</a>
+      </li>
+      <li>
+        <a href="https://tailwindcss.com/docs" target="_blank"
+          >Tailwind CSS Docs</a
+        >
+      </li>
+      <li>
+        <a href="https://www.framer.com/motion/" target="_blank"
+          >Framer Motion Docs</a
+        >
+      </li>
+      <li>
+        <a href="https://vercel.com/docs" target="_blank"
+          >Vercel Deployment Guide</a
+        >
+      </li>
+    </ul>
+
+    <div class="footer-note">
+      <p><strong>Project:</strong> FlowPilot SaaS Landing Page</p>
+      <p><strong>Status:</strong> Production Ready ✓</p>
+      <p><strong>Last Updated:</strong> July 2025</p>
+      <p><strong>Maintained by:</strong> Apexium Internship Program</p>
+    </div>
+  </body>
+</html>

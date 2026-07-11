@@ -74,14 +74,14 @@ export function Integrations() {
   return (
     <section
       id="integrations"
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="lg:py-24 py-16 relative overflow-x-hidden"
       ref={ref}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-surface-2/20 pointer-events-none" />
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -135,7 +135,7 @@ export function Integrations() {
         </div>
       </motion.div>
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10 mt-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10 mt-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

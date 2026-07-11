@@ -1,7 +1,11 @@
 "use client";
 import { useState } from "react";
 import { Zap, Send, ArrowRight } from "lucide-react";
-import { GithubIcon, TwitterIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import {
+  GithubIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "@/components/ui/BrandIcons";
 
 const cols = [
   {
@@ -42,14 +46,17 @@ export function Footer() {
 
       {/* Newsletter strip */}
       <div className="relative border-b border-border/60">
-        <div className="max-w-[1280px] mx-auto px-6 py-12 md:py-14 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-12 md:py-14 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col gap-2 text-center md:text-left">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">Newsletter</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">
+              Newsletter
+            </p>
             <h3 className="text-xl md:text-2xl font-bold font-display text-text">
               Get tips on shipping faster.
             </h3>
             <p className="text-sm text-text-secondary max-w-sm">
-              Product updates, team productivity tips, and AI guides. Delivered twice a month.
+              Product updates, team productivity tips, and AI guides. Delivered
+              twice a month.
             </p>
           </div>
 
@@ -86,7 +93,7 @@ export function Footer() {
       </div>
 
       {/* Main footer links */}
-      <div className="max-w-[1280px] mx-auto px-6 py-14 md:py-16 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-14 md:py-16 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 flex flex-col gap-6">
@@ -94,10 +101,13 @@ export function Footer() {
               <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-[0_4px_16px_rgba(124,58,237,0.35)] group-hover:shadow-[0_6px_24px_rgba(124,58,237,0.5)] transition-shadow">
                 <Zap size={17} className="text-white" fill="white" />
               </div>
-              <span className="font-bold font-display text-xl text-text">FlowPilot</span>
+              <span className="font-bold font-display text-xl text-text">
+                FlowPilot
+              </span>
             </a>
             <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
-              The modern workspace where teams plan, collaborate, and ship faster with AI. Loved by 50,000+ teams worldwide.
+              The modern workspace where teams plan, collaborate, and ship
+              faster with AI. Loved by 50,000+ teams worldwide.
             </p>
 
             {/* Social links */}
