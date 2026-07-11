@@ -10,7 +10,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
@@ -35,7 +35,7 @@ const aiMessages = [
 
 export function AISection() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -50,7 +50,7 @@ export function AISection() {
             animate={inView ? "visible" : "hidden"}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } },
+              visible: { transition: { staggerChildren: 0.05 } },
             }}
             className="flex flex-col gap-7"
           >
@@ -120,7 +120,7 @@ export function AISection() {
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            transition={{ duration: 0.35, ease: "easeOut", delay: 0.1 }}
             className="relative"
           >
             {/* Glow */}
@@ -147,7 +147,7 @@ export function AISection() {
                     key={i}
                     initial={{ opacity: 0, y: 12 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4 + i * 0.25, duration: 0.4 }}
+                    transition={{ delay: 0.2 + i * 0.1, duration: 0.25, ease: "easeOut" }}
                     className={`flex ${msg.type === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
@@ -171,7 +171,7 @@ export function AISection() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 1.6 }}
+                  transition={{ delay: 0.7 }}
                   className="flex items-center gap-1.5 px-4 py-3 bg-surface-2 rounded-2xl rounded-tl-sm w-fit"
                 >
                   {[0, 0.2, 0.4].map((d, i) => (

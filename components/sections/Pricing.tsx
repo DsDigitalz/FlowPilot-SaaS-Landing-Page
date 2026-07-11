@@ -11,13 +11,13 @@ const card: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
 export function Pricing() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
   const [yearly, setYearly] = useState(false);
 
   return (

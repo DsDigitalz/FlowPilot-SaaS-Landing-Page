@@ -37,7 +37,7 @@ function TestimonialCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
 
 export function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -53,7 +53,7 @@ export function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="mb-14"
         >
           <SectionTitle
@@ -68,7 +68,7 @@ export function Testimonials() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
         className="hidden lg:block relative overflow-hidden"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
@@ -97,7 +97,7 @@ export function Testimonials() {
               initial={{ opacity: 0, x: 32 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -32 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <TestimonialCard t={TESTIMONIALS[idx]} />
             </motion.div>

@@ -25,7 +25,7 @@ const highlights = [
 
 export function FAQ() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -41,7 +41,7 @@ export function FAQ() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="mb-16"
         >
           <SectionTitle
@@ -57,7 +57,7 @@ export function FAQ() {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
             className="lg:col-span-2 flex flex-col gap-4"
           >
             <div className="rounded-[28px] border border-border bg-surface p-6 flex flex-col gap-5 shadow-sm">
@@ -109,7 +109,7 @@ export function FAQ() {
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
             className="lg:col-span-3"
           >
             <div className="rounded-[28px] border border-border bg-surface p-2 shadow-sm">

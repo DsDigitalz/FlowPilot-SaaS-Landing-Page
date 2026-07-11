@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/Button";
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
 const item: Variants = {
@@ -22,7 +22,7 @@ const item: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
@@ -66,15 +66,15 @@ const tasks = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-30 sm:pt-24 md:pt-30 pb-30 sm:pb-16 md:pb-20 overflow-x-hidden">
+    <section className="relative min-h-screen flex items-center pt-15 sm:pt-15 md:pt-15 pb-30 sm:pb-16 md:pb-20 w-full overflow-x-hidden">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg" />
       <div className="absolute inset-0 grid-lines opacity-40" />
       <div className="noise-overlay absolute inset-0" />
 
-      {/* Purple orb */}
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px] pointer-events-none" />
+      {/* Decorative background orbs */}
+      <div className="absolute -top-20 sm:-top-40 -left-20 sm:-left-40 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-16 sm:-right-32 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-accent/8 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -164,9 +164,9 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
-                duration: 0.9,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.3,
+                duration: 0.45,
+                ease: "easeOut",
+                delay: 0.15,
               }}
               className="relative w-full max-w-[500px] rounded-[28px] bg-surface border border-border shadow-[0_32px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
@@ -193,7 +193,7 @@ export function Hero() {
               </div>
 
               {/* Kanban columns */}
-              <div className="p-4 grid grid-cols-3 gap-3 bg-surface-2/20">
+              <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 bg-surface-2/20">
                 {["To Do", "In Progress", "Done"].map((col, ci) => (
                   <div key={col} className="flex flex-col gap-2">
                     <div className="flex items-center gap-1.5 mb-1">
@@ -221,7 +221,7 @@ export function Hero() {
                           key={ti}
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.5 + ti * 0.15 }}
+                          transition={{ delay: 0.2 + ti * 0.05, duration: 0.25, ease: "easeOut" }}
                           className="bg-surface rounded-xl p-3 border border-border shadow-sm"
                         >
                           <p className="text-[11px] font-medium text-text leading-snug mb-2">
@@ -258,7 +258,7 @@ export function Hero() {
             <motion.div
               variants={floatA}
               animate="animate"
-              className="absolute -top-4 -left-6 md:-left-10 glass rounded-2xl p-3.5 shadow-lg w-48 z-20"
+              className="hidden md:block absolute -top-4 -left-10 glass rounded-2xl p-3.5 shadow-lg w-48 z-20"
             >
               <div className="flex items-center gap-2.5 mb-2">
                 <Bell size={14} className="text-primary" />
@@ -284,7 +284,7 @@ export function Hero() {
             <motion.div
               variants={floatB}
               animate="animate"
-              className="absolute -bottom-6 -left-4 md:-left-8 glass rounded-2xl p-4 shadow-lg w-44 z-20"
+              className="hidden md:block absolute -bottom-6 -left-8 glass rounded-2xl p-4 shadow-lg w-44 z-20"
             >
               <TrendingUp size={16} className="text-primary mb-1.5" />
               <p className="text-[10px] text-muted uppercase font-semibold tracking-wider">
@@ -294,7 +294,7 @@ export function Hero() {
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "72%" }}
-                  transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
+                  transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   className="h-full bg-primary rounded-full"
                 />
               </div>
@@ -305,7 +305,7 @@ export function Hero() {
             <motion.div
               variants={floatC}
               animate="animate"
-              className="absolute -top-2 -right-4 md:-right-8 glass rounded-2xl p-3.5 shadow-lg w-40 z-20"
+              className="hidden md:block absolute -top-2 -right-8 glass rounded-2xl p-3.5 shadow-lg w-40 z-20"
             >
               <div className="flex items-center gap-1.5 mb-2">
                 <Users size={13} className="text-accent" />

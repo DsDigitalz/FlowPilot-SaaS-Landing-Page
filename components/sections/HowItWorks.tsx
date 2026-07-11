@@ -21,13 +21,13 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
 export function HowItWorks() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -67,13 +67,13 @@ export function HowItWorks() {
                 }}
                 initial={{ scaleX: 0, transformOrigin: "left" }}
                 animate={inView ? { scaleX: 1 } : {}}
-                transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               />
               {/* Arrow indicators */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 2 }}
+                transition={{ delay: 0.8, duration: 0.25 }}
                 className="absolute right-[calc(50%+8px)] top-1/2 -translate-y-1/2"
               >
                 <ChevronRight size={14} className="text-secondary" />
@@ -98,9 +98,9 @@ export function HowItWorks() {
                         initial={{ scale: 0 }}
                         animate={inView ? { scale: 1 } : {}}
                         transition={{
-                          duration: 0.5,
-                          delay: 0.3 + i * 0.2,
-                          ease: [0.16, 1, 0.3, 1],
+                          duration: 0.3,
+                          delay: 0.15 + i * 0.08,
+                          ease: "easeOut",
                         }}
                         className="relative w-[104px] h-[104px] rounded-full flex flex-col items-center justify-center gap-1"
                         style={{

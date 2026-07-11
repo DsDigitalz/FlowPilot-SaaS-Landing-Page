@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <ThemeProvider>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 pt-16 md:pt-20">
         <Hero />
         <TrustSection />
         <Features />

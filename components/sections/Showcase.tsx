@@ -18,7 +18,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
@@ -62,7 +62,7 @@ const days = ["M", "T", "W", "T", "F", "S", "S"];
 
 export function Showcase() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -215,7 +215,7 @@ export function Showcase() {
                         key={i}
                         initial={{ opacity: 0, x: -12 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
+                        transition={{ delay: 0.15 + i * 0.05, duration: 0.25, ease: "easeOut" }}
                         className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-2 transition-colors"
                       >
                         <div
@@ -272,8 +272,8 @@ export function Showcase() {
                           initial={{ height: 0 }}
                           animate={inView ? { height: `${h}%` } : { height: 0 }}
                           transition={{
-                            duration: 0.8,
-                            delay: 0.5 + i * 0.08,
+                            duration: 0.35,
+                            delay: 0.2 + i * 0.04,
                             ease: "easeOut",
                           }}
                         />

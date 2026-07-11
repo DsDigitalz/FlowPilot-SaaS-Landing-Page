@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 w-full inset-x- z-50 bg-background/80 backdrop-blur-xl border-b border-border/40 py-3 md:py-4 shadow-sm" px->
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40 py-3 md:py-4 shadow-sm">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4 sm:gap-6 lg:gap-8 w-full">
           {/* Logo */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">

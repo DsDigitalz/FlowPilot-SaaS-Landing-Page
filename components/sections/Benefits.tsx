@@ -10,7 +10,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: "easeOut" },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
@@ -45,7 +45,7 @@ function TeamIllustration() {
             strokeDasharray="4 4"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 0.5 }}
-            transition={{ duration: 1.5, delay: 0.3 + i * 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 + i * 0.05, ease: "easeOut" }}
           />
         ))}
 
@@ -80,7 +80,7 @@ function TeamIllustration() {
               strokeWidth="2"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay }}
+              transition={{ duration: 0.3, delay, ease: "easeOut" }}
               style={{ transformOrigin: `${cx}px ${cy}px` }}
             />
             <motion.circle
@@ -90,7 +90,7 @@ function TeamIllustration() {
               fill={color}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.4, delay: delay + 0.1 }}
+              transition={{ duration: 0.25, delay: delay + 0.05, ease: "easeOut" }}
               style={{ transformOrigin: `${cx}px ${cy}px` }}
             />
             <text
@@ -140,7 +140,7 @@ function TeamIllustration() {
 
 export function Benefits() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section className="lg:py-24 py-16 overflow-x-hidden" ref={ref}>
@@ -150,7 +150,7 @@ export function Benefits() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           >
             <TeamIllustration />
           </motion.div>
@@ -161,7 +161,7 @@ export function Benefits() {
             animate={inView ? "visible" : "hidden"}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.08 } },
+              visible: { transition: { staggerChildren: 0.05 } },
             }}
             className="flex flex-col gap-8"
           >

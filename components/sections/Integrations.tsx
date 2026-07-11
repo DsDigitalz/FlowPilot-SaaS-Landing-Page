@@ -66,7 +66,7 @@ function IntegrationTile({ name, color }: { name: string; color: string }) {
 
 export function Integrations() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const row1 = INTEGRATIONS.slice(0, 6);
   const row2 = INTEGRATIONS.slice(6);
@@ -85,7 +85,7 @@ export function Integrations() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="mb-16"
         >
           <SectionTitle
@@ -101,7 +101,7 @@ export function Integrations() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
         className="flex flex-col gap-6 relative z-10"
       >
         {/* Fade masks */}
@@ -139,7 +139,7 @@ export function Integrations() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.35, delay: 0.15, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 rounded-[24px] border border-border bg-surface shadow-sm"
         >
           <div className="flex items-center gap-3">

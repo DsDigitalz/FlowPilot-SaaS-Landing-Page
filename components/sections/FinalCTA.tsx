@@ -14,7 +14,7 @@ const socialProof = [
 
 export function FinalCTA() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section className="lg:py-24 py-16 overflow-x-hidden" ref={ref}>
@@ -22,7 +22,7 @@ export function FinalCTA() {
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="relative overflow-hidden rounded-[36px] bg-primary px-8 py-16 md:px-16 md:py-20 text-center shadow-[0_40px_120px_rgba(124,58,237,0.45)]"
         >
           {/* Background geometry */}
